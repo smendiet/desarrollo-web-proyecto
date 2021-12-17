@@ -9,7 +9,7 @@ module.exports = {
      * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
      */
     await queryInterface.createTable('reviews', {
-      d: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
+      id: { type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
       content: Sequelize.TEXT,
       // Relación entre producto y reseña
       productId: {

@@ -56,7 +56,7 @@ router.post('/signup', async (req, res) => {
 
   // Se crea el usuario con los datos enviados
   // Creating the user
-  const user = await sequelize.models.users.create({
+  user = await sequelize.models.users.create({
     name: body.name,
     lastname: body.lastname,
     email: body.email,

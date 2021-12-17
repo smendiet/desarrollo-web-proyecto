@@ -11,7 +11,7 @@ module.exports = (sequelize) => sequelize.define('orders', {
     onDelete: 'CASCADE'
   },
   productId: {
-    types: DataTypes.INTEGER,
+    type: DataTypes.INTEGER,
     references: {
       model: 'products',
       key: 'id',

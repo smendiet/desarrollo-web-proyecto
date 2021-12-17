@@ -1,4 +1,6 @@
-## Instalación
+# Tienda en línea
+
+## Tools 
 
 ### Express
 
@@ -61,4 +63,48 @@ npx sequelize  migration:create --name CreateTableProducts
 
 despues de generadas las migraciones se debe ejecutar.
 
+
+### MariaDB
+
+Para acceder por consola se debe usar el comando:
+
+mysql
+mysql -u root -p
+
+
+comandos:
+* show databases;
+  Muestra las base de datos
+* create database <Nombre-de-la-Base-de-datos>;
+  Crea una base de datos con el nombre ingresado
+* use test;
+  Acceder a la base de datos
+* create table <Nombre-de-tabla> (<Nombre-de-columa> <tipo-de-columna> <opciones>, ...);
+  Crea una nueva tabla con las columnas indicadas
+  Por ejemplo:
+  create table students (
+    id int primary key,
+    first_name varchar(100) not null,
+    last_name varchar(100) not null,
+    entry_date date not null
+  );
+* show tables;
+  Muestra la tablas en la Base de datos
+* desc|describe <Nombre-de-tabla>;
+  muestra un descripción de la tablas con sus columnas.
+* create table <Nombre-de-table> like <Nombre-de-tabla-existente>;
+  Copia las columnas de una tabla existente.
+* alter table <Nombre-de-tabla> add column <Nombre-de-columna> <tipo-de-columna> <Opciones> [after <Nombre-de-columna>];
+  Agrega una columna a una tabla.
+
+Para creación de usuario:
+* CREATE USER '<Nombre-usuario>'@'localhot';
+  Crear un usuario
+* SET PASSWORD FOR '<Nombre-usuario>'@localhost = PASSWORD("");
+  Elimina contraseña del usuario.
+* SET PASSWORD FOR '<Nombre-usuario>'@localhost = PASSWORD("<Nueva-contraseña>");
+
+Permisos
+* GRANT ALL PRIVILEGES on *.* to '<Nombre-usuario>'@'localhost' IDENTIFIED BY '<password>';
+* FLUSH PRIVILEGES;
 

@@ -5,8 +5,8 @@ const permission = require('../middlewares/permission');
 
 // Get all users
 router.get('/', permission('admin'), async (req, res) => {
-  const users = await sequelize.models.users.findAndCountAll();
-  return res.status(200).json({ data: users });
+  const user = await sequelize.models.users.findAndCountAll();
+  return res.status(200).json({ data: user });
 });
 
 // Reto 10min
@@ -14,7 +14,7 @@ router.get('/', permission('admin'), async (req, res) => {
 // Creating a new user
 router.post('/', permission('admin'), async (req, res) => {
   const { body } = req;
-  const user = await sequelize.models.users.create({
+  const user1 = await sequelize.models.users.create({
     name: body.name,
     lastname: body.lastname,
     type: body.type,
@@ -22,8 +22,8 @@ router.post('/', permission('admin'), async (req, res) => {
     password: body.password,
   });
 
-  await user.save();
-  return res.status(201).json({ data: user });
+  await user1.save();
+  return res.status(201).json({ data: user1 });
 });
 
 // Update a user by id
@@ -47,7 +47,7 @@ router.put('/:id', permission('admin'), async (req, res) => {
 });
 
 // Delete a user by id
-router.delete('/:id', permission('admin'), (req, res) => {
+router.delete('/:id', permission('admin'), async (req, res) => {
   const { params: { id } } = req;
   const user = await sequelize.models.users.findByPk(id);
 
